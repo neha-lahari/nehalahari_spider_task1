@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>disc battle game</title>
+    <link href="task.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="names" class="names popup">
+        <div class="popup-content">
+            <h2>Enter player names</h2>
+            <input type="text" id="player1-name" placeholder="player 1 (red)" />
+            <input type="text" id="player2-name" placeholder="player 2 (blue)" />
+            <button id="game-start">Start Game</button>
+        </div>
+
+    </div>
+    <div id="container" class="container" style="display:none;">
+        <div class="header">
+            <div class="title">Disc Battle 4</div>
+            <div class="toggles">
+                <label class="toggle-label">Theme:</label>
+                <label class="theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <label class="toggle-label">Sound:</label>
+                <label class="sound-toggle">
+                    <input type="checkbox" id="sound-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <h3 id="turn-display"><span class="turn-circle"></span> Turn: Player <span id="player-timer"></span></h3>
+        <div id="message"></div><button id="undo-btn">Undo</button>
+
+        <div id="game-box">
+            <div class="block-row">
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+                <button class="block-btn">Block</button>
+            </div>
+            <div class="grid" id="grid"></div>
+
+        </div>
+
+    </div>
+    <div id="leaderboard-popup" class="popup-last" style="display: none;">
+        <div class="popup-content">
+            <h2>Game Over</h2>
+            <p id="game-result"></p>
+            <h3>Leaderboard</h3>
+            <ul id="leaderboard-list"></ul>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <audio id="audio-place" src="mixkit-arcade-game-jump-coin-216.wav"></audio>
+    <audio id="audio-block" src="mixkit-unlock-game-notification-253.wav"></audio>
+    <audio id="audio-win" src="
+       mixkit-video-game-win-2016.wav"></audio>
+
+    <script src="task.js"></script>
+</body>
+
+</html>
+
+
+<script src="task.js"></script>
+
+</body>
+
+</html>

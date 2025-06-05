@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1000, initial-scale=1.0" />
+    <link href="appdev.css" rel="stylesheet">
+    <title>Hammer Strength Test</title>
+</head>
+
+<body>
+    <div class="game-container">
+
+        <div class="top-controls">
+            <div class="game-header">
+                <h1>HAMMER STRENGTH TEST</h1>
+            </div>
+            <div class="info">Stop the stick as close to 90° for a perfect score!</div>
+            <div class="game-modes">
+                <button class="mode-btn active" id="singleBtn">Single Player</button>
+                <button class="mode-btn" id="twoBtn">Two Players</button>
+            </div>
+            <div class="player-turn" id="playerTurn" style="display:none"></div>
+            <div class="two-scores" id="twoScores" style="display:none">
+                <span id="score1">0</span>
+                <span id="score2">0</span>
+            </div>
+            <div class="score-display" id="scoreDisplay" style="display:none"></div>
+            <div class="winner-box" id="winnerBox" style="display:none"></div>
+            <div class="game-actions">
+                <button class="swing-btn" id="swingBtn">STOP!</button>
+                <button class="next-btn" id="nextBtn" style="display:none">NEXT PLAYER</button>
+                <button class="reset-btn" id="resetBtn">TRY AGAIN</button>
+            </div>
+        </div>
+
+        <div class="bottom-images-area" id="bottomImagesArea">
+            <div class="meter-area" id="meterArea1">
+                <img src="wqqq.png" class="meter-bg-img" alt="Strength Meter" />
+                <div class="stick" id="stick"></div>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEhhbW1lciBoYW5kbGUgLS0+CiAgPHJlY3QgeD0iMzUiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iNDUiIGZpbGw9IiNkMjY5MWUiIHJ4PSI1Ii8+CiAgCiAgPCEtLSBIYW5kbGUgZ3JpcCB0ZXh0dXJlIC0tPgogIDxnIHN0cm9rZT0iIzhiNDUxMyIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjYiPgogICAgPGxpbmUgeDE9IjM2IiB5MT0iMjUiIHgyPSI0NCIgeTI9IjI1Ii8+CiAgICA8bGluZSB4MT0iMzYiIHkxPSIzMCIgeDI9IjQ0IiB5Mj0iMzAiLz4KICAgIDxsaW5lIHgxPSIzNiIgeTE9IjM1IiB4Mj0iNDQiIHkyPSIzNSIvPgogICAgPGxpbmUgeDE9IjM2IiB5MT0iNDAiIHgyPSI0NCIgeTI9IjQwIi8+CiAgICA8bGluZSB4MT0iMzYiIHkxPSI0NSIgeDI9IjQ0IiB5Mj0iNDUiLz4KICAgIDxsaW5lIHgxPSIzNiIgeTE9IjUwIiB4Mj0iNDQiIHkyPSI1MCIvPgogICAgPGxpbmUgeDE9IjM2IiB5MT0iNTUiIHgyPSI0NCIgeTI9IjU1Ii8+CiAgICA8bGluZSB4MT0iMzYiIHkxPSI2MCIgeDI9IjQ0IiB5Mj0iNjAiLz4KICA8L2c+CiAgCiAgPCEtLSBIYW1tZXIgaGVhZCBiYXNlIC0tPgogIDxyZWN0IHg9IjE1IiB5PSIxMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjE4IiBmaWxsPSIjMmMyYzJjIiByeD0iMyIvPgogIAogIDwhLS0gSGFtbWVyIGhlYWQgbWFpbiBib2R5IC0tPgogIDxyZWN0IHg9IjE3IiB5PSIxMiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjE0IiBmaWxsPSIjNGE0YTRhIiByeD0iMiIvPgogIAogIDwhLS0gSGFtbWVyIGhlYWQgc3RyaWtpbmcgc3VyZmFjZSAtLT4KICA8cmVjdCB4PSIxOSIgeT0iMTQiIHdpZHRoPSI0MiIgaGVpZ2h0PSIxMCIgZmlsbD0iIzVhNWE1YSIgcng9IjEiLz4KICAKICA8IS0tIENlbnRlciBob2xlIGZvciBoYW5kbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjQwIiBjeT0iMTkiIHJ4PSI2IiByeT0iOCIgZmlsbD0iIzJjMmMyYyIvPgogIAogIDwhLS0gTWV0YWwgc2hpbmUgZWZmZWN0IC0tPgogIDxlbGxpcHNlIGN4PSIyNSIgY3k9IjE2IiByeD0iOCIgcnk9IjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMyIvPgogIDxlbGxpcHNlIGN4PSI1NSIgY3k9IjE2IiByeD0iNiIgcnk9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMiIvPgogIAogIDwhLS0gSGFuZGxlIGVuZCBjYXAgLS0+CiAgPGVsbGlwc2UgY3g9IjQwIiBjeT0iNjciIHJ4PSI2IiByeT0iMyIgZmlsbD0iIzhiNDUxMyIvPgogIAogIDwhLS0gU21hbGwgYmxhY2sgZG90IGRldGFpbCAtLT4KICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjE5IiByPSIyIiBmaWxsPSIjMDAwMDAwIi8+Cjwvc3ZnPg=="
+                    class="hammer-img" alt="Hammer" />
+            </div>
+        </div>
+    </div>
+    <script src="appdev.js"></script>
+</body>
+
+</html>
